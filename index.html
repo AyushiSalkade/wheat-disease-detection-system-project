@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wheat Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="bg-container">
+
+        <!-- Heading (plain, no card) -->
+        <h1>Wheat Leaf Disease Detection</h1>
+
+        <!-- About Us Section -->
+        <div class="about-us">
+            <h2>About Us</h2>
+            <p>
+                We are a dedicated team of agricultural and AI enthusiasts focused on helping farmers 
+                identify wheat diseases quickly and accurately. Using advanced machine learning models, 
+                we provide actionable remedies to improve crop health and yields. Our mission is to 
+                empower farmers with technology and knowledge for sustainable agriculture.
+            </p>
+        </div>
+
+        <!-- Upload / Prediction Section -->
+        <div class="overlay">
+    {% if filename %}
+        <img src="{{ url_for('static', filename=filename) }}" alt="Uploaded Image">
+        
+        {% if label == "Healthy" %}
+            <h2>{{ label }}</h2>
+            <p>"No action needed. Keep monitoring the crop.",
+         "कोई कार्रवाई आवश्यक नहीं। फसल की निगरानी करते रहें।"</p>
+        {% else %}
+            <h2>Disease: {{ label }}</h2>
+            <p>Remedy: {{ remedy }}</p>
+        {% endif %}
+        
+        <form method="GET" action="/">
+            <button type="submit">Predict Another Image</button>
+        </form>
+    {% else %}
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <br>
+            <button type="submit">Predict Disease</button>
+        </form>
+    {% endif %}
+</div>
+    </div>
+</body>
+</html>

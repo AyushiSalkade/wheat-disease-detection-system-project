@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Prediction Result</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-wrap">
+    <div class="card" style="background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9)); color:#111;">
+      <h1>Prediction Result</h1>
+
+      <div class="result-card">
+        <img class="preview-img" src="{{ image_file }}" alt="Uploaded image">
+
+        <div class="result-details">
+          <h2>Disease: {{ disease }}</h2>
+          <p><strong>Remedy:</strong> {{ remedy }}</p>
+          {% if confidence %}
+            <p><strong>Confidence:</strong> {{ confidence }}%</p>
+          {% endif %}
+          <a class="link-back" href="/">🔙 Try Another Image</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
