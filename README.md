@@ -23,9 +23,10 @@ This system classifies wheat leaf images into different disease categories using
 - NumPy
 - OpenCV
 - Matplotlib
-- Flask (for web interface, if applicable)
-
-├── app.py ├── main.py ├── train.py ├── split_dataset.py ├── best_model.pth ├── dataset/ ├── Data/ ├── templates/ ├── static/ 
----
-
+- Flask (for web interface)
+  
 ## 📂 Project Structure
+├── app.py ├── main.py ├── train.py ├── split_dataset.py ├── best_model.pth ├── dataset/ ├── Data/ ├── templates/ ├── static/ 
+
+
+
